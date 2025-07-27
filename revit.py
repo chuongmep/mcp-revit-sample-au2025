@@ -64,20 +64,20 @@ async def get_family_types(family: str) -> list[str]:
     return list(family_types)
 
 @mcp.tool()
-async def get_family_types_by_category(category: str, family: str) -> list[str]:
-    """Get a list of family types for a given family in the Revit model."""
+async def get_family_types_by_category(category: str) -> list[str]:
+    """Get a list of family types for a given category in the Revit model."""
     data = await read_csv_data()
-    family_types = set(row["Type"] for row in data if row["Category"] == category and row["Family"] == family)
+    family_types = set(row["Type"] for row in data if row["Category"] == category)
     return list(family_types)
 
 @mcp.tool()
-async def visualize_elements_by_category(category: str) -> str:
-    """Visualize elements by category in the Revit model."""
+async def get_element_by_id(element_id: str) -> dict[str, Any]:
+    """Get element details by its ID."""
     data = await read_csv_data()
-    elements = [row for row in data if row["Category"] == category]
-    
-    # For simplicity, return a JSON string representation of the elements
-    return json.dumps(elements, indent=2)
+    for row in data:
+        if row["ElementId"] == element_id:
+            return row
+    raise ValueError(f"Element with ID {element_id} not found.")
 
 
 if __name__ == "__main__":
