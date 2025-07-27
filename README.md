@@ -41,10 +41,15 @@ source venv/bin/activate
 # Install dependencies
 uv add mcp[cli] httpx
 ```
-4. Open the Claude configuration file:
+4. configuration file (Use Claude):
 
+Macos/Linux:
 ```bash
 code ~/Library/Application\ Support/Claude/claude_desktop_config.json
+```
+Windows:
+```bash
+code $env:AppData\Claude\claude_desktop_config.json
 ```
 
 Paste the following configuration into the file:
@@ -64,6 +69,34 @@ Paste the following configuration into the file:
   }
 }
 ```
+
+Config using VsCode : 
+
+1. Create a `.vscode` folder in the root of your project.
+2. Create a `mcp.json` file inside the `.vscode` folder.
+3. Paste the following configuration into the `mcp.json` file:
+
+```json
+{
+  "servers": {
+    "revit-mcp-vscode": {
+      "command": "uv",
+      "type": "stdio",
+      "args": [
+        "--directory",
+        "C:\\Users\\chuon\\Downloads\\repos\\mcp-revit-sample-au2025",
+        "run",
+        "revit.py"
+      ],
+      "env": {
+
+      }
+    }
+  }
+}
+```
+4. Restart Vscode. 
+5. Open the Command Palette (Ctrl+Shift+P or Cmd+Shift+P) and type "MCP: Start Server" to start the MCP server.
 
 ## Preview
 
