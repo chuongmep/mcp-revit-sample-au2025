@@ -1,0 +1,13 @@
+
+1. Query Number Of Element
+
+how many element in models ?
+
+
+2. Query sumarry report ? 
+
+show me details all family and type name
+
+3. Complience standard check 
+
+give me check room standard
