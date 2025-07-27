@@ -6,5 +6,6 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "httpx>=0.28.1",
+    "matplotlib>=3.10.3",
     "mcp[cli]>=1.12.2",
 ]
