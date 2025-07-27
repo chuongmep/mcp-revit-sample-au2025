@@ -3,6 +3,9 @@ import json
 import csv
 from typing import Any
 import httpx
+import re
+import asyncio
+import logging
 import matplotlib.pyplot as plt
 from mcp.server.fastmcp import FastMCP
 
@@ -79,6 +82,26 @@ async def get_element_by_id(element_id: str) -> dict[str, Any]:
             return row
     raise ValueError(f"Element with ID {element_id} not found.")
 
+@mcp.tool()
+async def get_all_parameters() -> list[dict[str, Any]]:
+    """Get all parameters from the Revit model."""
+    data = await read_csv_data()
+    parameters = []
+    for row in data:
+        params = {k: v for k, v in row.items() if k not in ["ElementId", "Category", "Family", "Type"]}
+        parameters.append(params)
+    return parameters
+
+mcp.tool()
+async def check_rooms_name_standardization() -> dict[str, Any]:
+    """Check if room names follow a standard naming convention.
+    Return a dictionary with room names that are not standardized and a list of all room names.
+    """
+    regex = r"^Room\s+\d+$"  # Example regex for room names like "Room 1", "Room 2", etc.
+    data = await read_csv_data()
+    room_names = [row["Name"] for row in data if row["Category"] == "Rooms"]
+    standardized = all(re.match(regex, name) for name in room_names)
+    return {"standardized": standardized, "room_names": room_names}
 
 if __name__ == "__main__":
     # Initialize and run the server
