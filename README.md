@@ -1,6 +1,44 @@
-# mcp-revit-sample-au2025
+# MCP Revit Sample (AU 2025)
 
-Demo sample MCP integration with revit data at AU 2025
+A lightweight Model Context Protocol (MCP) sample that lets AI clients query a Revit model for BIM insights like element counts, category breakdowns, families/types, room compliance, and naming conventions. It’s designed for quick demos, teaching, and extending MCP patterns with AEC data.
+
+## Highlights
+
+- MCP-native: works with MCP-enabled clients (e.g., Claude Desktop)
+- Simple prompts → structured BIM answers
+- Windows-first sample with minimal setup
+- Easy to extend with new queries and checks
+
+
+## Features
+
+- Element insights
+  - Count total elements in the model
+  - Category breakdown (e.g., Walls, Doors, Rooms)
+  - Get elements by category or ID
+- Families and types
+  - List families and types by category
+  - Summarize unique families/types and instance counts
+- Room checks
+  - Basic compliance heuristics (area/height/load fields present)
+  - Naming convention review (name/number/mark/department/occupancy)
+- Developer-friendly
+  - Small, readable code layout
+  - Example prompts and outputs
+  - Works with sample model data under `models/`
+
+## Example Prompts
+
+- “how many elements in model?” → 8
+- “give me details of all categories in model” → Walls: 4, Doors: 3, Rooms: 1
+- “How many family and type name, give me details” → Basic Wall: Generic - 200mm; M_Single-Flush: 0915 x 2134mm
+- “I want check compliance standard for room” → flags missing occupancy/finishes/HVAC loads
+- “give me check naming conversion for room category” → suggests standard naming and numbering patterns
+
+## Screenshots
+
+- ![Model Overview](docs/iShot_2025-07-27_14.09.15.png)
+- ![Interaction Sample](docs/iShot_2025-07-27_14.23.17.png)
 
 
 ## System requirements
