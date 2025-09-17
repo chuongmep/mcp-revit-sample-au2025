@@ -1,6 +1,12 @@
-# MCP Revit Sample (AU 2025)
+# MCP Revit Hackathon Demo (AU 2025)
 
 A lightweight Model Context Protocol (MCP) sample that lets AI clients query a Revit model for BIM insights like element counts, category breakdowns, families/types, room compliance, and naming conventions. It’s designed for quick demos, teaching, and extending MCP patterns with AEC data.
+
+Topic : [1430 | AI-Driven Revit Vibe Coding: Transformation BIM Workflow Customization ](https://conferences.autodesk.com/flow/autodesk/au2025/sessioncatalog/page/inperson/session/1743607175271001Eign)
+
+Speaker: 
+- [Chuong Ho](https://www.linkedin.com/in/chuongmep/)
+- [Phuc Le](https://www.linkedin.com/in/lehieuhongphuc/)
 
 ## Highlights
 
